@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import TV from './pages/TV'
-import Phone from './pages/Phone'
+import TV from './pages/TV.jsx'
+import Phone from './pages/Phone.jsx'
 
 function App() {
   const [mode, setMode] = useState(null)
