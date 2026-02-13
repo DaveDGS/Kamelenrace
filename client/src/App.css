@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import TV from './pages/TV.jsx'
-import Phone from './pages/Phone.jsx'
+import Phone from './pages/phone.jsx'
 
 function App() {
   const [mode, setMode] = useState(null)
@@ -18,13 +18,13 @@ function App() {
         <div className="flex flex-col sm:flex-row gap-6">
           <button
             onClick={() => setMode('tv')}
-            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/50"
+            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl"
           >
             📺<br/>TV SCHERM
           </button>
           <button
             onClick={() => setMode('phone')}
-            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/50"
+            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl"
           >
             📱<br/>TELEFOON
           </button>
