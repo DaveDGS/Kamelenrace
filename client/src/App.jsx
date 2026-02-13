@@ -1,0 +1,39 @@
+import { useState } from 'react'
+import TV from './pages/TV'
+import Phone from './pages/Phone'
+
+function App() {
+  const [mode, setMode] = useState(null)
+
+  if (!mode) {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 p-4">
+        <div className="text-center mb-12">
+          <h1 className="text-8xl font-black text-white mb-4 drop-shadow-2xl">
+            🐪 KAMELENRACE
+          </h1>
+          <p className="text-2xl text-white font-semibold">Het ultieme drankspel</p>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-6">
+          <button
+            onClick={() => setMode('tv')}
+            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/50"
+          >
+            📺<br/>TV SCHERM
+          </button>
+          <button
+            onClick={() => setMode('phone')}
+            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/50"
+          >
+            📱<br/>TELEFOON
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  return mode === 'tv' ? <TV /> : <Phone />
+}
+
+export default App
