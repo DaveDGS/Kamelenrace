@@ -1,42 +1,39 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+import { useState } from 'react'
+import TV from './pages/TV'
+import Phone from './pages/Phone'
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+function App() {
+  const [mode, setMode] = useState(null)
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  if (!mode) {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 p-4">
+        <div className="text-center mb-12">
+          <h1 className="text-8xl font-black text-white mb-4 drop-shadow-2xl">
+            🐪 KAMELENRACE
+          </h1>
+          <p className="text-2xl text-white font-semibold">Het ultieme drankspel</p>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-6">
+          <button
+            onClick={() => setMode('tv')}
+            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/50"
+          >
+            📺<br/>TV SCHERM
+          </button>
+          <button
+            onClick={() => setMode('phone')}
+            className="bg-white text-orange-600 text-4xl font-black py-10 px-20 rounded-3xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/50"
+          >
+            📱<br/>TELEFOON
+          </button>
+        </div>
+      </div>
+    )
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+  return mode === 'tv' ? <TV /> : <Phone />
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+export default App
